@@ -25,12 +25,12 @@ import io.github.mariazevedo88.springframeworkexamples.service.EmployeeService;
 public class EmployeeController {
 	
 	@Autowired
-	private EmployeeService employeeService;
+	private EmployeeService service;
 	
 	@PostMapping
     public ResponseEntity<EmployeeDTO> create(@RequestBody EmployeeDTO dto) {
 		
-		Employee employee = employeeService.save(convertDTOToEntity(dto));
+		Employee employee = service.save(convertDTOToEntity(dto));
 		EmployeeDTO response = convertEntityToDTO(employee);
 		
 		return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -39,7 +39,7 @@ public class EmployeeController {
 	@GetMapping("/{id}")
     public ResponseEntity<EmployeeDTO> findById(@PathVariable("id") long id) {
 		
-		Optional<Employee> opEmployee = employeeService.findById(id);
+		Optional<Employee> opEmployee = service.findById(id);
 		
 		if(!opEmployee.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);	
@@ -53,7 +53,7 @@ public class EmployeeController {
 	@GetMapping
     public ResponseEntity<List<EmployeeDTO>> findAll() {
 		
-		List<Employee> employees = employeeService.findAll();
+		List<Employee> employees = service.findAll();
 		
 		if(employees.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);	
@@ -68,13 +68,13 @@ public class EmployeeController {
 	@DeleteMapping(value = "/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") long id) {
 		
-		Optional<Employee> opEmployee = employeeService.findById(id);
+		Optional<Employee> opEmployee = service.findById(id);
 		
 		if(!opEmployee.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee doesn't exist.");	
 		}
 		
-		employeeService.deleteById(id);
+		service.deleteById(id);
 		return new ResponseEntity<>("Employee successfully deleted!", HttpStatus.NO_CONTENT);
     }
 	

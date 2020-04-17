@@ -24,14 +24,14 @@ public class Employee {
 	@Column(name="name")
 	private String name;
 
-	@Column(name="profile")
-	private String profile;
+	@Column(name="level")
+	private String level;
 	
 	public Employee() {}
 
     @Autowired
-    public Employee(String profile) {
-        this.profile = profile;
+    public Employee(String level) {
+        this.level = level;
     }
     
     public Long getId() {
@@ -51,11 +51,11 @@ public class Employee {
 	}
 
 	@Autowired
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public String getProfile() {
-        return profile;
+    public String getLevel() {
+        return level;
     }
 }

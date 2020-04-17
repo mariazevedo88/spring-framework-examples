@@ -30,11 +30,17 @@ public class Profile {
         this.numberOfDepartments = numberOfDepartments;
     }
 
-    @Value("1")
     public void setNumberOfDepartments(int numberOfDepartments) {
         this.numberOfDepartments = numberOfDepartments;
     }
-
+    
+    public int getNumberOfDepartments() {
+		return numberOfDepartments;
+	}
+    
+    public String getProfileLevel() {
+		return profileLevel;
+	}
 }
 
 

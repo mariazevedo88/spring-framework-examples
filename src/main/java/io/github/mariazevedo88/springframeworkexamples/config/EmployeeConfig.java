@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 
+import io.github.mariazevedo88.springframeworkexamples.model.Profile;
+
 @Configuration
 @ComponentScan(basePackages = "io.github.mariazevedo88")
 @ComponentScan(basePackageClasses = EmployeeConfig.class)
@@ -17,8 +19,14 @@ public class EmployeeConfig {
 	
 	@Bean
     @Lazy(false)
-    public String profile() {
+    public String level() {
         return new String();
+    }
+	
+	@Bean
+    @Lazy(false)
+    public Profile profile() {
+        return new Profile();
     }
 
 }

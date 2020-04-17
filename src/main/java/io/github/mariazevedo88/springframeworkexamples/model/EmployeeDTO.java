@@ -6,7 +6,7 @@ public class EmployeeDTO {
 	
 	private String name;
 	
-	private String profile;
+	private String level;
 
 	public Long getId() {
 		return id;
@@ -24,12 +24,12 @@ public class EmployeeDTO {
 		this.name = name;
 	}
 
-	public String getProfile() {
-		return profile;
+	public String getLevel() {
+		return level;
 	}
 
-	public void setProfile(String profile) {
-		this.profile = profile;
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
 }

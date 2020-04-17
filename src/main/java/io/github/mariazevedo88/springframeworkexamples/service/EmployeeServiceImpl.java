@@ -13,26 +13,26 @@ import io.github.mariazevedo88.springframeworkexamples.repository.EmployeeReposi
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	EmployeeRepository employeeRepository;
+	EmployeeRepository repository;
 	
 	@Override
 	public Employee save(Employee employee) {
-		return employeeRepository.save(employee);
+		return repository.save(employee);
 	}
 
 	@Override
 	public Optional<Employee> findById(Long id) {
-		return employeeRepository.findById(id);
+		return repository.findById(id);
 	}
 
 	@Override
 	public List<Employee> findAll() {
-		return employeeRepository.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		employeeRepository.deleteById(id);
+		repository.deleteById(id);
 	}
 
 }
